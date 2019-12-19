@@ -1,0 +1,111 @@
+<div class="outer-wrapper">
+  <!-- <p-toggleButton [(ngModel)]="male" onLabel="Male" offLabel="Female" [style]="{'background-color': '#1BA8F1', 'border-color': '#1BA8F1', 'color': 'white'}" name="gender"></p-toggleButton> -->
+  <div class="explanation">You don't have to specify any field, but it will lead to a more specific recommendation.</div>
+
+  <label (click)="formActive = 0">Choose the gender of your mentor. If you don't mind the gender, leave it empty.</label>
+  <div class="selection">{{genderLabel}}</div>
+  <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 0}">
+    <div class="select-option" (click)="onMale()" [ngClass]="{'option-active': male === true}">
+      Male
+    </div>
+    <div class="select-option" (click)="onFemale()" [ngClass]="{'option-active': female === true}">
+      Female
+    </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="onNext(0)">Next <i class="pi pi-arrow-right"></i></div>
+    </div>
+  </div>
+
+  <label (click)="formActive = 1">Choose your program:</label>
+  <div class="selection">{{programLabel}}</div>
+  <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 1}">
+    <div *ngFor="let program of programs; let i = index" (click)="onProgram(program)" class="select-option" [ngClass]="{'option-active': programActive === program.label}">
+      {{ program.label }}
+    </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="formActive = 0"><i class="pi pi-arrow-left"></i> Back</div>
+      <div class="navigate" (click)="onNext(1); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+    </div>
+  </div>
+  <!-- <div>
+    <label for="programs">Choose your program:</label>
+    <p-dropdown [options]="programs" [(ngModel)]="selectedPrograms" name="programs" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [filter]="false"></p-dropdown>
+  </div> -->
+
+  <label (click)="formActive = 2; scrollIntoView()">Choose your area(s) (Max. 2):</label>
+  <div class="selection">{{areasLabel}}</div>
+  <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 2}">
+    <div *ngFor="let area of areas; let i = index" (click)="onArea(i)" class="select-option" [ngClass]="{'option-active': areasActive.includes(i)}">
+      {{ area.label }}
+    </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="formActive = 1"><i class="pi pi-arrow-left"></i> Back</div>
+      <div class="navigate" (click)="onNext(2)">Next <i class="pi pi-arrow-right"></i></div>
+    </div>
+  </div>
+  <!-- <div>
+    <label for="area">Choose area(s):</label>
+    <p-multiSelect [options]="areas" [(ngModel)]="selectedAreas" [panelStyle]="{minWidth:'12em'}" name="areas" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [filter]="false"></p-multiSelect>
+  </div> -->
+
+  <!-- <label for="hobbies">Hobbies:</label>
+  <div class="option-wrapper">
+    <div *ngFor="let hobby of hobbies; let i = index" (click)="onHobby(i)" class="select-option" [ngClass]="{'option-active': hobbiesActive.includes(i)}">
+      {{ hobby }}
+    </div>
+  </div> -->
+
+  <label (click)="formActive = 3">Choose your favourite programming language:</label>
+  <div class="selection">{{programmingLanguageLabel}}</div>
+  <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 3}">
+    <div *ngFor="let pLanguage of pLanguages; let i = index" (click)="pLanguageActive = pLanguage.value; onNext(3)" class="select-option" [ngClass]="{'option-active': pLanguageActive === pLanguage}">
+      {{ pLanguage.label }}
+    </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="formActive = 2"><i class="pi pi-arrow-left"></i> Back</div>
+      <div class="navigate" (click)="onNext(3); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+    </div>
+  </div>
+
+  <!-- <div>
+    <label for="planguages">Programming language(s):</label>
+    <p-multiSelect [options]="pLanguages" [(ngModel)]="selectedPLanguages" [panelStyle]="{minWidth:'12em'}" name="pLanguages" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [filter]="false"></p-multiSelect>
+  </div> -->
+
+
+  <label (click)="formActive = 4; scrollIntoView()">Which language(s) do you speak?</label>
+  <div class="selection">{{languagesLabel}}</div>
+  <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 4}">
+    <!-- <p-multiSelect [options]="languages" [(ngModel)]="selectedLanguages" [panelStyle]="{minWidth:'12em'}" name="languages" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'"></p-multiSelect> -->
+
+    <div *ngFor="let language of languages; let i = index" (click)="onLanguage(language);" class="select-option" [ngClass]="{'option-active': languagesActive.includes(language)}">
+      {{ language.label }}
+    </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="formActive = 3"><i class="pi pi-arrow-left"></i> Back</div>
+      <div class="navigate" (click)="onNext(4)">Next <i class="pi pi-arrow-right"></i></div>
+    </div>
+  </div>
+
+
+  <label (click)="formActive = 5">Where are you from?</label>
+  <div class="selection">{{countryLabel}}</div>
+  <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 5}">
+    <!-- <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" (click)="onCountry()" name="country" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" filter="true"></p-dropdown> -->
+
+    <div *ngFor="let country of countries" (click)="countryActive = country; onNext(5)" class="select-option" [ngClass]="{'option-active': countryActive === country}">
+      {{ country.label }}
+    </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="formActive = 4"><i class="pi pi-arrow-left"></i> Back</div>
+    </div>
+  </div>
+
+  <button [disabled]="!canRequest" (click)="onSubmit()" type="button">Find me a mentor</button>
+</div>

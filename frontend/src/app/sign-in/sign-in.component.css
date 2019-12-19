@@ -1,0 +1,17 @@
+.option-wrapper-signin{
+  margin-bottom: 2rem;
+  transition: none;
+  max-height: fit-content;
+  overflow: visible;
+  opacity: 1;
+}
+
+.pin-keyboard-signin{
+  width: 400px;
+  margin:auto;
+}
+
+label{
+  font-weight: 700;
+  margin-bottom: 1rem;
+}

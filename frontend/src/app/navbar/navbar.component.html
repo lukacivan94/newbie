@@ -1,0 +1,21 @@
+<div class="navbar">
+  <div class="title">
+    <b>{{title}}</b>
+  </div>
+</div>
+<div class="back" (click)="onRouteBack()">
+  <i class="pi pi-arrow-left"></i>
+</div>
+
+<div class="login">
+  <a routerLink="/signin" routerLinkActive="active-link" (click)="onRoute('Log in')"><i class="pi pi-user" title="Mentor Log In"></i></a>
+</div>
+
+<div class="nav-menu">
+  <a routerLink="/home" routerLinkActive="active-link" (click)="onRoute('newbie')"><i class="pi pi-home" title="Homepage"></i></a>
+  <a routerLink="/recommendation" routerLinkActive="active-link" (click)="onRoute('Quick recommendation')"><i class="pi pi-list" title="Quick Recommondation"></i></a>
+  <a routerLink="/findmentor" routerLinkActive="active-link" (click)="onRoute('Find your mentor')"><i class="pi pi-search" title="Find Your Mentor"></i></a>
+  <a routerLink="/becomementor" routerLinkActive="active-link" (click)="onRoute('Become a mentor')"><i class="pi pi-user-plus" title="Become a Mentor"></i></a>
+  <a routerLink="/events" routerLinkActive="active-link" (click)="onRoute('Upcoming events')"><i class="pi pi-calendar" title="Upcoming Events"></i></a>
+  <a routerLink="/externallinkpage" routerLinkActive="active-link" (click)="onRoute('External Links')"><i class="pi pi-info" title="External Links"></i></a>
+</div>

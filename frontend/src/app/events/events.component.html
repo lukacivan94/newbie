@@ -1,0 +1,18 @@
+<div class="outer-wrapper">
+  <div *ngFor="let event of events" class="inner-wrapper">
+    <h3>{{event.title}}</h3>
+    <div class="text-wrapper">
+      <p>
+        Every {{event.date_time}}
+      </p>
+      <div><i class="pi pi-users"></i> {{ event.counter }}</div>
+      <p>
+        {{event.place}}
+      </p>
+    </div>
+    <!-- <button [disabled]="!canRequest" (click)="onDecreaseEventCounter(event)">Leave event</button> -->
+    <button [disabled]="!canRequest" (click)="onIncreaseEventCounter(event)">I'm interested in {{event.title}}</button>
+  </div>
+</div>
+
+

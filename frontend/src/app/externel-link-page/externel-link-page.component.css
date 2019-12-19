@@ -1,0 +1,55 @@
+.description{
+  font-size: 1.2rem;
+}
+
+
+
+.block{
+width:1000px;
+height:400px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.block img{
+  width:auto;
+	height:100%;
+}
+
+.mensa{
+  width:1000px;
+  height:400px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  }
+
+  .mensa img{
+    width:auto;
+    height:100%;
+  }
+
+  .qr img{
+    width: 200px;
+	  height: 200px;
+	  max-width: 100%;
+    max-height: 100%;
+    align-items:center;
+    justify-content:center;
+
+  }
+
+  .qr{
+    float: right;
+    left:80%;
+  }
+
+  .print img{
+    width: 200px;
+	  height: 200px;
+	  max-width: 100%;
+    max-height: 100%;
+    align-items:center;
+    justify-content:center;
+  }

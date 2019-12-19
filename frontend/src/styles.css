@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 2% 0 10% !important;
+  user-select: none;
+  background-color: #ECECEC;
+}
+
+button{
+  color:white;
+  background-color: #1BA8F1;
+  border: 1px solid #1BA8F1;
+  border-radius: 10px;
+  padding: 1rem 4rem;
+  width: 80%;
+  font-size: 1rem;
+}
+
+.outer-wrapper{
+  padding:2% 0;
+  text-align:center;
+  width: 100%;
+}
+
+label{
+    display: block;
+}
+
+.ui-chkbox-label{
+  display: inline;
+}
+
+.ui-g-12{
+  text-align: center;
+  width: 33%;
+}

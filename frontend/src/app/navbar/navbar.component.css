@@ -1,0 +1,79 @@
+.navbar{
+    height:60px;
+    width: 100%;
+    border-bottom: 2px solid lightgray;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color:#ECECEC;
+    z-index: 1000;
+}
+/* .user{
+    float:right;
+    font-size: 3rem;
+    color: #1BA8F1;
+}
+.home{
+    float:left;
+    font-size: 3rem;
+    color: #1BA8F1;
+} */
+
+.title{
+    position: absolute;
+    left:50%;
+    transform:translate(-50%, 50%);
+    width:auto;
+    display:inline-block;
+    font-size: 1.5rem;
+}
+
+.back{
+    position: fixed;
+    top: 5%;
+    left: 2%;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: #1BA8F1;
+}
+
+.login{
+    position: fixed;
+    top: 10%;
+    left: 2%;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: #1BA8F1;
+}
+
+.back i, .login i{
+    color:white;
+}
+
+.nav-menu{
+  position:fixed;
+  top:25%;
+  transform: translateY(-25%);
+  left: 2%;
+  width: 60px;
+  font-size: 2rem;
+  background-color: #1BA8F1;
+  border: 1px solid #1BA8F1;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.nav-menu i {
+  margin: 1rem 0;
+  color:white;
+}
+
+.active-link i{
+    color: rgb(241, 141, 27) !important;
+}

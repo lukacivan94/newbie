@@ -1,0 +1,25 @@
+<div class="outer-wrapper">
+  <form>
+    <div class="option-wrapper-signin">
+      <label for="email">E-Mail:</label>
+      <!-- <input type="email" ngModel id="email" name="email" email #email="ngModel" required> {{selectedEmail}} -->
+      {{placeholderEmail}}{{email}}<span *ngIf="email !== ''">{{selectedEmail}}</span>
+      <div class="email-keyboard-signin"></div>
+
+    <div class="ui-g">
+      <p-checkbox (onChange)="onEmailChange('@mytum.de')" class="ui-g-12" name="emailSelected" label="@mytum.de" value="@mytum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+      <p-checkbox (onChange)="onEmailChange('@tum.de')" class="ui-g-12" name="emailSelected" label="@tum.de" value="@tum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+      <p-checkbox (onChange)="onEmailChange('@in.tum.de')" class="ui-g-12" name="emailSelected" label="@in.tum.de" value="@in.tum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+      <p-checkbox (onChange)="onEmailChange('@gmail.com')" class="ui-g-12" name="emailSelected" label="@gmail.com" value="@gmail.com" [(ngModel)]="selectedEmail"></p-checkbox>
+    </div>
+    </div>
+
+    <div class="option-wrapper-signin">
+      <label for="pin">PIN</label>
+      <!-- <input type="password" name="pin" maxLength="4" ngModel id="password" name="password" password #password="ngModel" required> -->
+      {{placeholderPin}}{{pin}}
+      <div class="pin-keyboard-signin"></div>
+    </div>
+    <button type="button" (click)="onLogIn()">Log in</button>
+  </form>
+</div>

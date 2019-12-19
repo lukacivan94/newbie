@@ -1,0 +1,12 @@
+i{
+  transform: translateY(15%);
+}
+
+.inner-wrapper{
+  margin-bottom: 2rem;
+}
+
+button{
+  width: 40%;
+  margin: 0 0.5rem;
+}

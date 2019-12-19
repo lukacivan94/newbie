@@ -1,0 +1,27 @@
+<div class="course-selection">
+  <h3>Your selection - {{coursesCounter}} course(s)</h3>
+  <div class="text-left">
+    <div><b>Total credits:</b> {{ totalCredits }} ECTS</div>
+    <div><b>Credits by area:</b> <div *ngFor="let creditsByArea of creditsByAreas">{{ creditsByArea.area }} - {{ creditsByArea.credits }} ECTS</div></div>
+  </div>
+</div>
+<div class="top-right">Total number of courses: <b>{{courses.length}}</b></div>
+<div class="outer-wrapper">
+  <div (click)="onCourseClicked(course)" *ngFor="let course of courses; let i = index" class="list-element" [ngClass]="{'course-active': coursesActive.includes(course)}">
+    <div class="course-ects">{{ course.ects }} <br> ECTS</div>
+    <div class="course-info">
+      <h3>{{ course.title}}</h3>
+      <div>
+        Course-language: 
+        <div style="display: inline-block; margin-right: 0.25rem" *ngFor="let language of course.languages">{{ language }}</div>
+      </div>
+      <div>
+        Prerequisites: {{ course.requirements }}
+      </div>
+    </div>
+    <div class="course-area">
+      {{ course.area }}
+    </div>
+    <div style="clear:both"></div>
+  </div>
+</div>

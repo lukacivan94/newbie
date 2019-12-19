@@ -1,0 +1,145 @@
+/*
+#video {
+  background-color: #000000;
+}
+#canvas {
+  display: none;
+}
+li {
+  display: inline;
+  padding: 5px;
+} */
+
+.option-wrapper{
+  margin-bottom: 2rem;
+  transition: all 0.5s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.option-wrapper-active{
+  max-height: 1150px;
+  overflow: visible;
+  opacity: 1;
+}
+.select-option {
+  border: 5px solid lightgray;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  color: black;
+  display: inline-block;
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
+.select-option:focus, .select-option:active{
+  border: 5px solid #1BA8F1;
+  color: #1BA8F1;
+}
+
+.option-active{
+  border: 5px solid #1BA8F1;
+  color: #1BA8F1;
+}
+
+label{
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.selection {
+  font-weight: 1000;
+  color: rgb(241, 141, 27);
+}
+
+.grid {
+  width: 100px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto auto;
+}
+
+.inline {
+display: inline-block;
+}
+
+.take-picture{
+  height: 150px;
+  width:150px;
+  border: 1px solid black;
+  position: relative;
+  top: 10%;
+  left: 80%;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  display: none;
+}
+
+.take-picture img{
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  display: inline;
+  position: absolute;
+  top:0;
+  right:0;
+}
+
+#canvas{
+  display:none;
+}
+
+.take-picture-text{
+  transform: translateY(100%);
+}
+
+.take-picture-overlay{
+  border: 2px solid lightgray;
+  box-shadow: 2px 4px 24px #dadada;
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+  position:relative;
+  z-index: 5;
+}
+
+.take-picture-overlay button{
+  margin: 1rem;
+}
+
+.close {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  font-size: 2rem;
+}
+
+.pin-keyboard{
+  width: 400px;
+  margin: auto;
+}
+
+.navigate-wrapper {
+  margin: 1rem auto;
+}
+
+.navigate {
+  padding: 1rem 0.25rem;
+  color: white;
+  background-color:rgb(241, 141, 27);
+  width: 10%;
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.navigate i {
+  font-size: 1rem;
+}
+
+.explanation{
+  font-size: 1.5rem;
+  font-weight: 1000;
+  color: rgb(241, 141, 27);
+  margin-bottom: 2rem;
+}

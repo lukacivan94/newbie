@@ -1,0 +1,41 @@
+<div class="outer-wrapper">
+  <div class="explanation">Welcome {{ mentor.name }}. This is you personal space. You can send meeting reminders to your assigned newbies. You will meet your newbies at the public display on {{mentor.meeting_time}}.</div>
+  <a (click)="logout()" routerlink="/home" class="logout"><button><i style="transform: translateY(15%)" class="pi pi-power-off"></i> Log out</button></a>
+  <div class="personal-data">
+    <h3>Personal Data:</h3>
+    <div class="inner-text">
+      <div><b>Name: </b> {{ mentor.name }}</div>
+      <div><b>E-Mail: </b> {{ mentor.email }}</div>
+      <div><b>Program: </b> {{ mentor.programme }}</div>
+      <div><b>Area: </b> <div style="display: inline-block; margin-right: 0.25rem;"*ngFor="let mentorArea of mentor.areas">{{ mentorArea }}</div></div>
+      <div><b>Language: </b> <div style="display: inline-block; margin-right: 0.25rem;"*ngFor="let mentorLanguage of mentor.languages">{{ mentorLanguage }}</div></div>
+      <div><b>Country: </b> {{ mentor.country }}</div>
+      <div><b>Programming language:</b> {{ mentor.proglanguage }}</div>
+      <div><b>Meeting time: </b> {{ mentor.meeting_time }}</div>
+    </div>
+    <!-- <button (click)="onEdit()">Edit</button> -->
+  </div>
+
+  <div class="reminder">
+    <h3>Newbies, who want to meet you:</h3>
+    <div class="inner-text">
+      <div *ngIf="mentor.newbies.names.length === 0; else newbielist">
+        So far, there are no newbies assigned to you. Come back tomorrow and check again!
+      </div>
+      <ng-template #newbielist>
+        <div class="newbie-list" *ngFor="let newbieName of mentor.newbies.names">{{newbieName}}</div>
+        <button (click)="onSendReminders()">Send reminders to newbies</button>
+      </ng-template>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="change-pin">
+    <h3>Change pin:</h3>
+    <div class="inner-text">
+      <input type="password" name="pin" maxLength="4" ngModel id="pin" pin #pin="ngModel" pattern="[0-9]{4}" required>
+      <button (click)="onChangePin()">Ok</button>
+    </div>
+  </div> -->
+</div>

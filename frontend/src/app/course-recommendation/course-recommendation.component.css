@@ -1,0 +1,59 @@
+.list-element {
+  border: 5px solid lightgray;
+  border-radius: 20px;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.course-ects {
+  float: left;
+  width: 20%;
+  font-size: 2rem;
+  border-right: 2px solid lightgray;
+}
+
+.course-info {
+  float: left;
+  width: 60%;
+  padding-left: 1rem;
+  text-align: left;
+}
+
+h3{
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.text-left{
+  display: inline;
+}
+
+.course-area{
+  float: right;
+  width: 20%;
+  transform: translateY(-10%);
+}
+
+.course-active{
+  border: 5px solid #1BA8F1;
+}
+
+.course-selection {
+  padding: 1rem;
+  background-color: #1BA8F1;
+  color: white;
+  width: 100%;
+  border-radius:20px;
+  margin-bottom: 1rem;
+}
+
+.outer-wrapper{
+  height: 80vh;
+  overflow-y: scroll;
+  clear: both;
+}
+
+.top-right{
+  float: right;
+}

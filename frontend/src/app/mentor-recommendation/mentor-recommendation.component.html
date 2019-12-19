@@ -1,0 +1,28 @@
+<div>
+  <div *ngFor="let mentor of mentors" class="mentor-wrapper">
+    <!-- <div class="mentor-image">
+      <img src="assets/user.png" alt="mentorImage" class="image-wrapper">
+    </div> -->
+    <div class="mentor-information">
+      <h3>{{ mentor.name }} | {{ mentor.gender }}</h3>
+      <div><i class="pi pi-envelope"></i> Contact: {{ mentor.email }}</div>
+      <div><i class="pi pi-clock"></i> Meeting Time: {{ mentor.meeting_time }}</div>
+    </div>
+    <!-- <div>Level of satisfaction:</div>
+    <div class="progress-wrapper">
+      <div class="progress-outer">
+        <div class="progress-bar" [ngStyle]="{'width': mentor.satisfactionRate + '%', 'background-color': getSatisfactionColor(mentor)}">{{mentor.satisfactionRate}}%</div>
+      </div>
+    </div> -->
+    <!-- <div>Level of accordance:</div>
+    <div class="progress-wrapper">
+      <div class="progress-outer">
+        <div class="progress-bar" [ngStyle]="{'width': mentor.accordanceLevel + '%', 'background-color': getAccordanceColor(mentor)}">{{mentor.accordanceLevel}}%</div>
+      </div>
+    </div> -->
+    <div>
+      <!-- <a (click)="onRoute('Contact mentor')" routerLink="/findmentor/recommendation/contact"><button>Contact</button></a> -->
+      <a (click)="onMeet(mentor)" routerLink="/findmentor/recommendation/meet"><button>Meet</button></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+.select-option {
+  border: 5px solid lightgray;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  color: black;
+  display: inline-block;
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
+.option-wrapper{
+  margin-bottom: 2rem;
+  transition: all 0.5s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.option-wrapper-active{
+  max-height: 1000px;
+  overflow: visible;
+  opacity: 1;
+}
+
+.select-option:focus, .select-option:active{
+  border: 5px solid #1BA8F1;
+  color: #1BA8F1;
+}
+
+.option-active{
+  border: 5px solid #1BA8F1;
+  color: #1BA8F1;
+}
+
+label{
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.selection {
+  font-weight: 1000;
+  color: rgb(241, 141, 27);
+}
+
+.ui-spinner{
+  width: 3rem;
+}
+
+.button{
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #1BA8F1;
+  color: white;
+  border-radius: 10px;
+  width: 100px;
+  margin-bottom: 0.2rem;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.button-wrapper{
+  display: inline-block;
+}
+
+.text-wrapper{
+  transform: translateY(-100%);
+  display:inline-block;
+  margin: 1rem;
+  width: 50px;
+}
+
+.navigate-wrapper {
+  margin: 1rem auto;
+}
+
+.navigate {
+  padding: 1rem 0.25rem;
+  color: white;
+  background-color:rgb(241, 141, 27);
+  width: 10%;
+  display: inline-block;
+  margin: 0 1rem;
+}
+.navigate i {
+  font-size: 1rem;
+}
+
+.explanation{
+  font-size: 1.5rem;
+  font-weight: 1000;
+  color: rgb(241, 141, 27);
+  margin-bottom: 2rem;
+}

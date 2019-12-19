@@ -1,0 +1,25 @@
+<div class="outer-wrapper">
+  <div class="explanation">
+    You will meet your mentor at the public display.
+  </div>
+  <form>
+    <div class="option-wrapper-meet">
+      {{placeholderName}}{{name}}
+      <div class="simple-keyboard-meet"></div>
+    </div>
+    <div class="option-wrapper-meet">
+      {{placeholderEmail}}{{email}}<span *ngIf="email !== ''">{{ selectedEmail[0] }}</span>
+      <div class="email-keyboard-meet"></div>
+    
+
+      <div class="ui-g option-wrapper-meet">
+        <p-checkbox (onChange)="onEmailChange('@mytum.de')" class="ui-g-12" name="selectedEmail" label="@mytum.de" value="@mytum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+        <p-checkbox (onChange)="onEmailChange('@tum.de')" class="ui-g-12" name="emailSelected" label="@tum.de" value="@tum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+        <p-checkbox (onChange)="onEmailChange('@in.tum.de')" class="ui-g-12" name="selectedEmail" label="@in.tum.de" value="@in.tum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+        <p-checkbox (onChange)="onEmailChange('@gmail.com')" class="ui-g-12" name="selectedEmail" label="@gmail.com" value="@gmail.com" [(ngModel)]="selectedEmail"></p-checkbox>
+      </div>
+    </div>
+
+    <button type="button" (click)="onMeet()">Send</button>
+  </form>
+</div>

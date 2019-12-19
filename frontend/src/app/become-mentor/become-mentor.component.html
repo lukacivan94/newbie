@@ -1,0 +1,209 @@
+<div class="outer-wrapper">
+  <div class="explanation">
+      Want to help out?
+      <br>
+      Help new students to find their way.
+  </div>
+  <form>
+    <!-- <div class="take-picture" (click)="capture()">
+      <img src="{{cap}}" class="photo">
+      <div *ngIf="cap === undefined" class="take-picture-text"><i class="pi pi-camera" style="font-size: 50px;"></i></div>
+    </div> -->
+
+    <!-- <div id="photo" [ngStyle]="{'display': showTakePicutreOverlay ? 'block' : 'none'}" class="take-picture-overlay">
+        <div class="close" (click)="onCloseTakePictureOverlay()"><i class="pi pi-times"></i></div>
+
+        <font color ="red"><h3 id="timer" size="30px" face="impact">{{timer}}</h3></font>
+        <div><video #video id="video" width="640" height="480" autoplay></video></div>
+        <div><button id="snap" (click)="snapButton()" type="button">Snap Photo</button></div>
+        <canvas #canvas id="canvas" width="640" height="480"></canvas> -->
+        <!-- <ul>
+        <div><button id="snap" (click)="capture()" type="button">Snap Photo</button></div>
+            <li *ngFor="let c of captures">
+                <img src="{{ c }}" height="50" />
+            </li>
+        </ul> -->
+    <!-- </div> -->
+    <label (click)="formActive = 0; scrollIntoView()">First Name:</label>
+    <div class="selection">{{nameLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 0}">
+      <!-- <input type="text" ngModel name="firstname" id="name" #name="ngModel" required> -->
+      {{placeholderName}}{{name}}
+      <div class="simple-keyboard"></div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="onNext(0)">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 1; scrollIntoView()">E-Mail:</label>
+    <div class="selection">{{emailLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 1}">
+      <!-- <input type="text" ngModel name="email" id="email" email #email="ngModel" required> {{ selectedEmail[0] }} -->
+      {{placeholderEmail}}{{email}}<span *ngIf="email !== ''">{{ selectedEmail[0] }}</span>
+      <div class="email-keyboard"></div>
+
+
+      <div class="ui-g">
+        <p-checkbox (onChange)="onEmailChange('@mytum.de')" class="ui-g-12" name="emailSelected" label="@mytum.de" value="@mytum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+        <p-checkbox (onChange)="onEmailChange('@tum.de')" class="ui-g-12" name="emailSelected" label="@tum.de" value="@tum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+        <p-checkbox (onChange)="onEmailChange('@in.tum.de')" class="ui-g-12" name="emailSelected" label="@in.tum.de" value="@in.tum.de" [(ngModel)]="selectedEmail"></p-checkbox>
+        <p-checkbox (onChange)="onEmailChange('@gmail.com')" class="ui-g-12" name="emailSelected" label="@gmail.com" value="@gmail.com" [(ngModel)]="selectedEmail"></p-checkbox>
+      </div>
+
+    <div class="navigate-wrapper">
+      <div class="navigate" (click)="formActive = 0"><i class="pi pi-arrow-left"></i> Back</div>
+      <div class="navigate" (click)="onNext(1)">Next <i class="pi pi-arrow-right"></i></div>
+    </div>
+    </div>
+
+    <label (click)="formActive = 2; scrollIntoView()">PIN:</label>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 2}">
+      <!-- <input type="password" name="pin" maxLength="4" ngModel id="pin" pin #pin="ngModel" pattern="[0-9]{4}" required> -->
+      {{placeholderPin}}{{pin}}
+      <div class="pin-keyboard"></div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 1"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(2)">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 3; scrollIntoView()">Choose your gender. If you dont identify with any of the below, just don't choose anything.</label>
+    <div class="selection">{{genderLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 3}">
+      <div class="select-option" (click)="onMale()" [ngClass]="{'option-active': male === true}">
+        Male
+      </div>
+      <div class="select-option" (click)="onFemale()" [ngClass]="{'option-active': female === true}">
+        Female
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 2"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(3)">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 4; scrollIntoView()">Choose your program:</label>
+    <div class="selection">{{programLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 4}">
+      <div *ngFor="let program of programs; let i = index" (click)="onProgram(program)" class="select-option" [ngClass]="{'option-active': programActive === program.label}">
+        {{ program.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 3"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(4); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 5; scrollIntoView()">Choose your area(s) (Max. 2):</label>
+    <div class="selection">{{areasLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 5}">
+      <div *ngFor="let area of areas; let i = index" (click)="onArea(i)" class="select-option" [ngClass]="{'option-active': areasActive.includes(i)}">
+        {{ area.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 4"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(5); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- <label for="hobbies">Hobbies:</label>
+    <div class="option-wrapper">
+      <div *ngFor="let hobby of hobbies; let i = index" (click)="onHobby(i)" class="select-option" [ngClass]="{'option-active': hobbiesActive.includes(i)}">
+        {{ hobby }}
+      </div>
+    </div> -->
+
+    <label (click)="formActive = 6; scrollIntoView()">Choose your favourite programming language:</label>
+    <div class="selection">{{programmingLanguageLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 6}">
+      <div *ngFor="let pLanguage of pLanguages; let i = index" (click)="pLanguageActive = pLanguage.value; onNext(6); scrollIntoView()" class="select-option" [ngClass]="{'option-active': pLanguageActive === pLanguage.value}">
+        {{ pLanguage.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 5"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(6); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 7; scrollIntoView()">Which language(s) do you speak?</label>
+    <div class="selection">{{languagesLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 7}">
+      <!-- <p-multiSelect [options]="languages" [(ngModel)]="selectedLanguages" [panelStyle]="{minWidth:'12em'}" name="languages" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'"></p-multiSelect> -->
+      <div *ngFor="let language of languages; let i = index" (click)="onLanguage(language)" class="select-option" [ngClass]="{'option-active': languagesActive.includes(language)}">
+        {{ language.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 6"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(7); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 8; scrollIntoView()">Where are you from?</label>
+    <div class="selection">{{countryLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 8}">
+      <!-- <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" name="country" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" filter="true"></p-dropdown> -->
+      <div *ngFor="let country of countries" (click)="countryActive = country.value; onNext(8); scrollIntoView()" class="select-option" [ngClass]="{'option-active': countryActive === country.value}">
+        {{ country.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 7"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext(8); scrollIntoView()">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- <div class="option-wrapper">
+      <label>Choose your meeting time:</label>
+      <p-calendar [(ngModel)]="time" [timeOnly]="true" name="time"></p-calendar>
+    </div> -->
+    <!-- [stepMinute]=30 -->
+
+    <label (click)="formActive = 9; scrollIntoView()">Choose your meeting day and time:</label>
+    <div class="selection">{{meetingTimeLabel}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 9}">
+      <div *ngFor="let day of days; let i = index" (click)="onDay(i); scrollIntoView()" class="select-option" [ngClass]="{'option-active': dayActive === day}">
+        {{ day }}
+      </div>
+      <br>
+      <br>
+      <div style="display:inline-block">
+        <div class="grid">
+          <div (click)="onHoursClicked(true)">
+            <i class="pi pi-chevron-up"></i>
+          </div>
+          <div></div>
+          <div (click)="onMinutesClicked(true)">
+            <i class="pi pi-chevron-up"></i>
+          </div>
+          <div>
+            {{hours}}
+          </div>
+          <div>:</div>
+          <div>
+            {{minutes}}
+          </div>
+          <div (click)="onHoursClicked(false)">
+            <i class="pi pi-chevron-down"></i>
+          </div>
+          <div></div>
+          <div (click)="onMinutesClicked(false)">
+            <i class="pi pi-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 8"><i class="pi pi-arrow-left"></i> Back</div>
+      </div>
+    </div>
+
+    <button [disabled]="!canRequest" type="button" (click)="onSignUp()" class="btn btn-primary button1">Sign up</button>
+  </form>
+</div>

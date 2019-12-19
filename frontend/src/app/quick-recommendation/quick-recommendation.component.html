@@ -1,0 +1,117 @@
+<div class="outer-wrapper">
+    <div class="explanation">You don't have to specify any field, but it will lead to a more specific recommendation.</div>
+    <label (click)="formActive = 0">For which semester do you need a course recommendation?</label> 
+    <div class="selection">{{semester}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 0}">
+        <div class="select-option" (click)="onSemester(true)" [ngClass]="{'option-active': ws === true}">
+        WS
+        </div>
+        <div class="select-option" (click)="onSemester(false)" [ngClass]="{'option-active': ss === true}">
+        SS
+        </div>
+
+        <div class="navigate-wrapper">
+          <div class="navigate" (click)="formActive = 1">Next <i class="pi pi-arrow-right"></i></div>
+        </div>
+    </div>
+
+    <label (click)="formActive = 1">Are you a Bachelor or Master student?</label>
+    <div class="selection">{{baMa}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 1}">
+      <div class="select-option" (click)="onBaMa(true); formActive = 2" [ngClass]="{'option-active': ba === true}">
+        Bachelor
+      </div>
+      <div class="select-option" (click)="onBaMa(false)" [ngClass]="{'option-active': ma === true}">
+        Master
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 0"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="formActive = 2">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 2">Course language:</label>
+    <div class="selection">{{language}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 2}">
+      <div class="select-option" (click)="onLanguage(true)" [ngClass]="{'option-active': de === true}">
+        DE
+      </div>
+      <div class="select-option" (click)="onLanguage(false)" [ngClass]="{'option-active': en === true}">
+        EN
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 1"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="formActive = 3">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- <div class="option-wrapper">
+        <label for="semester">In which semester are you?</label>
+        <p-spinner size="30" [(ngModel)]="semester" [min]="1" [max]="maxSemester" name="semester" [inputStyle]="{width:'4rem'}"></p-spinner>
+    </div> -->
+
+    <!-- <div class="option-wrapper">
+    <label for="programs">Choose your program:</label>
+    <p-multiSelect [options]="programs" [(ngModel)]="selectedPrograms" [panelStyle]="{minWidth:'12em'}" name="programs" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [filter]="false"></p-multiSelect>
+    </div>
+
+    <div class="option-wrapper">
+    <label for="area">Choose area(s):</label>
+    <p-multiSelect [options]="areas" [(ngModel)]="selectedAreas" [panelStyle]="{minWidth:'12em'}" name="areas" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [filter]="false"></p-multiSelect>
+    </div> -->
+
+    <label (click)="formActive = 3">Choose your program:</label>
+    <div class="selection">{{programActive}}</div>
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 3}">
+      <div *ngFor="let program of programs; let i = index" (click)="onProgram(program)" class="select-option" [ngClass]="{'option-active': programActive === program.label}">
+        {{ program.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 2"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="onNext();">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <label (click)="formActive = 4" *ngIf="programActive === 'Informatics'">Choose your area:</label>
+    <div *ngIf="programActive === 'Informatics'" class="selection">{{areaActive}}</div>
+    <div *ngIf="programActive === 'Informatics'" class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 4}">
+      <div *ngFor="let area of areas" (click)="areaActive = area.value; formActive = 5" class="select-option" [ngClass]="{'option-active': areaActive === area}">
+        {{ area.label }}
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="formActive = 3"><i class="pi pi-arrow-left"></i> Back</div>
+        <div class="navigate" (click)="formActive = 5">Next <i class="pi pi-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- <div class="option-wrapper">
+
+        <p-spinner size="30" [(ngModel)]="ects" [min]="0" [max]="10" name="ects" [inputStyle]="{width:'4rem'}"></p-spinner>
+    </div> -->
+
+    <label (click)="formActive = 5">Enter minimum desired number of ECTS (per course):</label>
+    <!-- <div *ngIf="ects !== 0" class="selection">{{ects}}</div> -->
+    <div class="option-wrapper" [ngClass]="{'option-wrapper-active': formActive === 5}">
+      <div class="text-wrapper">
+        {{ects}}
+      </div>
+      <div class="button-wrapper">
+        <div class="button" (click)="onMoreEcts();">
+          <i class="pi pi-chevron-up"></i>
+        </div>
+        <div class="button" (click)="onLessEcts();">
+          <i class="pi pi-chevron-down"></i>
+        </div>
+      </div>
+
+      <div class="navigate-wrapper">
+        <div class="navigate" (click)="onBack()"><i class="pi pi-arrow-left"></i> Back</div>
+      </div>
+    </div>
+
+    <button [disabled]="! canRequest" (click)="onSubmit()" type="submit">Go</button>
+</div>
